@@ -16,7 +16,7 @@
 // name += " nawaz"
 // console.log(name);
 
- //JS ERRORS
+//  JS ERRORS
 
 // let name = "fahad"
 // name -= " nawaz"
