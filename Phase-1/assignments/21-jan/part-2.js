@@ -36,8 +36,8 @@ console.log(d)
 
 // Question 5: Post-Increment in Expression
 
-let x = 7
-let y = x++ + 5
+// let x = 7
+// let y = x++ + 5
 console.log(y)
 console.log(x)
 // Your Prediction:
@@ -69,7 +69,7 @@ console.log(num)
 
 // Question 8: Mixing Pre and Post Increment
 
-let a = 5
+// let a = 5
 let result = a++ + ++a
 console.log(result)
 console.log(a)
