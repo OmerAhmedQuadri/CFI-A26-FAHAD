@@ -34,4 +34,18 @@ boolean
 null
 undefined
 bigint
+Symbol
+exponent
 */
+
+let id = Symbol("10")
+let id2 = Symbol("10")
+console.log(id == id2); //false cuz every symbol created is unique by default
+
+let power = 2 ** 3 // 2 raise to 3 = 2*2*2 = 8
+
+let _ = 12
+console.log(_);
+
+
+console.log(!!!!!!!!!!10);
