@@ -1,4 +1,4 @@
-ARRAYS
+// ARRAYS
 
 let a1 = ["a", 1]
 console.log(a);
@@ -86,6 +86,3 @@ abc1[0] = 101
 
 console.log(abc1);
 console.log(abc2);
-
-OBJECTS
-
