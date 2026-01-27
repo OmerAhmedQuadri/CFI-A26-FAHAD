@@ -59,3 +59,16 @@ console.log(a.toString(2));//converts the number to string and in binary
 console.log(a.toString(16));//converts the number to string and in hexa
 console.log(a.toString(8));//converts the number to string and in octal
 
+//isNaN
+console.log(isNaN(NaN));
+console.log(isNaN(10 / 0));
+console.log(isNaN(10));
+console.log(isNaN(19 - 'jgh'));
+
+//isFinite
+console.log(isFinite(10 / 0));
+console.log(isFinite(10 / 1));
+
+//isInteger
+console.log(Number.isInteger(9.0));
+console.log(Number.isInteger(9.1));

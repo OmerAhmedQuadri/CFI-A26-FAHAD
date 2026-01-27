@@ -19,7 +19,7 @@ let str1 = 'hello world'
 console.log(str1.indexOf('o'));
 console.log(str1.indexOf('orld'));
 console.log(str1.indexOf('osdfgh'));
-console.log(str1.indexOf('o',5));
+console.log(str1.indexOf('o', 5));
 
 //includes
 let str2 = "fahad nawaz"
@@ -29,4 +29,4 @@ console.log(str2.includes("sdfghj"));
 //lastIndexOf
 let a1 = "fahad nawaz khan"
 console.log(a1.lastIndexOf('n'));
-console.log(a1.lastIndexOf('n',14));
+console.log(a1.lastIndexOf('n', 14));
