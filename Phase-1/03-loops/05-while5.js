@@ -1,8 +1,8 @@
-//pattern problems
+// pattern problems
 
-//*
-//** 
-//*** 
+// *
+// ** 
+// *** 
 
 // let str = ''
 // str = str + "*"
@@ -13,4 +13,3 @@
 
 // str = str + "*"
 // console.log(str);
-

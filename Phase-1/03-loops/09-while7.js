@@ -18,12 +18,12 @@
 // 1234
 // 12345
 
-// let pattern = ''
-// let i = 1
-// let max = 6
-// while (i<max) {
-//     pattern = pattern + i
-//     console.log(pattern);
-//     i++
-// }
+let pattern = ''
+let i = 1
+let max = 6
+while (i<max) {
+    pattern = pattern + i
+    console.log(pattern);
+    i++
+}
 

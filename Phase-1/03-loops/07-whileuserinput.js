@@ -1,4 +1,4 @@
-import readline from 'readline-sync';
+import input from 'readline-sync';
 
 //*
 //** 
@@ -6,7 +6,7 @@ import readline from 'readline-sync';
 
 let str1 = ""
 let i = 0
-let max = readline.questionInt("Enter a number: ")
+let max = input.questionInt("Enter a number: ")
 
 while (i < max) {
     str1 = str1 + "* "
