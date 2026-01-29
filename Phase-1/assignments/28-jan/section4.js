@@ -101,7 +101,15 @@ while (i5 <= 5) {
 // HEL
 // HELL
 // HELLO
+let str8 = 'HELLO'
+let i = 0
+let str9 = ''
 
+while (i < 5) {
+    str9 = str9 + str8[i]
+    console.log(str9)
+    i++
+}
 
 
 // Q35. Predict the output
