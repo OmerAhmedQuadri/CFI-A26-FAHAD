@@ -1,0 +1,16 @@
+import readline from "readline-sync";
+
+let i = 0
+let max = 10
+while (i < max) {
+    console.log(i * 2 + 1);
+    i++
+}
+
+//write a program to print first n odd numbers
+let odd = 0
+let max1 = readline.questionInt("enter a number: ")
+while (odd < 10) {
+    console.log(odd * 2 + 1);
+    odd++
+}
