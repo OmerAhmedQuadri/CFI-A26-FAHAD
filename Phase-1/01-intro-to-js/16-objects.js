@@ -1,5 +1,3 @@
-
-
 const person = {
     name: 'fahad',
     age: 21
