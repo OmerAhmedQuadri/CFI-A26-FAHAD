@@ -59,7 +59,7 @@ console.log(sum3)
 // 2: Mango
 // ...
 // Your Code:
-let arr6 = [Apple, Banana, Mango, Kiwi, Guava]
+let arr6 = ["Apple", " Banana", "Mango", "Kiwi", "Guava"]
 for (let i = 0; i < arr6.length; i++) {
     console.log(`${i}: ${arr6[i]}`);
 }

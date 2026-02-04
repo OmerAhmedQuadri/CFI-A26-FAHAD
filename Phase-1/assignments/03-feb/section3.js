@@ -35,6 +35,7 @@ let result2 = add2(10, 20)
 
 console.log(result1)
 console.log(result2)
+console.log('end');
 // Your Prediction:
 
 // result1 = 30
@@ -63,7 +64,7 @@ console.log(getMax(50, 30))  // Should print: 50
 function multiply(a, b) {
     return a * b
 }
-
+console.log('qn18');
 let result = multiply(5, 4)
 console.log(result)
 console.log(multiply(10, 3))
