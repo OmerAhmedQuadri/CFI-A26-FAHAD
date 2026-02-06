@@ -45,10 +45,10 @@ function multiply(a = 10, b = 10) {
 
 function divide(a, b) {
     if (b == 0) {
-        console.log("enter a non zero number");
+        console.error("enter a non zero number");
         return
-    } else if (typeof a !== 'number' || typeof b !== 'number') {
-        console.log('enter a valid number');
+    } else if (typeof a !== 'number' || typeof b != 'number') {
+        console.error('enter a valid number');
         return
     }
     return a / b
@@ -180,11 +180,36 @@ console.log(isPerfect(28));
 
 // 12. Armstrong Number
 // Write a function isArmstrong(num) that checks if a number is an Armstrong number number that equals the sum of its own digits, each raised to the power of the total number of digits).
-console.log('question 12 is ????????');
+
+let num = 153
+let arr = []
+let temp = num
+let count = 0
+let temp2 = 0
+while (temp) {
+    count++
+    temp2 = temp % 10
+    arr.push(temp2)
+    temp = Math.floor(temp / 10)
+}
+
+for (let i = 0; i < count; i++) {
+    arr[i] = Math.pow(arr[i], count)
+
+}
+
+console.log(new Date("October 13, 2014 11:13:00"));
 // Example: 153 is Armstrong because 1³ + 5³ + 3³ = 153
 
 // 13. Find All Primes in Range
 // Write a function primesInRange(start, end) that returns an array of all prime numbers between start and end (inclusive).
+// function primesInRange(start, range) {
+//     let isprime = true
+//     let arr = []
+//     for (let i = start; i < range; i++) {
+//         if ()
+//     }
+// }
 
 // 14. Sum of Digits
 // Write a function sumOfDigits(num) that returns the sum of all digits in a number.
@@ -261,8 +286,16 @@ console.log(countDown(5));
 
 // 20. Array Sum (Recursive)
 // Write a recursive function sumArrayRecursive(arr, index) that calculates the sum of all elements in an array without using a loop.
+function sumArrayRecursive(arr, i = 0) {
+    let sum = 0
+    if (i < arr.length) {
+        return arr[i]
+    }
+    return sum = sum + sumArrayRecursive(arr, ++i)
 
-console.log('qn20 ???????');
+
+}
+console.log(sumArrayRecursive([1, 2, 3, 4, 5]));
 
 // Hint: Use index parameter to track position, default it to 0.
 

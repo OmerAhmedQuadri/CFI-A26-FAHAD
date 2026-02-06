@@ -8,14 +8,14 @@
 //     console.log('hello world');
 //     num1--
 // }
-// console.log('rest of the code');
+console.log('rest of the code');
 
-// let i = 1
-// while (i <= 5) {
-//     console.log(i);
-//     i++
-// }
-// console.log('rest of the code');
+let i1 = 1
+while (i1 <= 5) {
+    console.log(i1);
+    i1++
+}
+console.log('rest of the code');
 
 let name = 'fahad'
 let i = 0
