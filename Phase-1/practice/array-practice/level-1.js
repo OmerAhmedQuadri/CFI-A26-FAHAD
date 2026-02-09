@@ -263,11 +263,30 @@ console.log(str);
 
 // Convert string to array manually
 
+
 // Count elements greater than x
+let arr16 = [1, 2, 3, 4, 5]
+let x = 1
+let count6 = 0
+for (let i = 0; i < arr16.length; i++) {
+    if (arr16[i] > x) {
+        count6++
+    }
+} console.log(count6);
 
 // Count elements less than x
+let x1 = 4
+let count7 = 0
+for (let i = 0; i < arr16.length; i++) {
+    if (arr16[i] < x1) {
+        count7++
+    }
+} console.log(count7);
 
 // Find difference between max and min
+let min = arr16[0]
+let max = arr16[arr16.length - 1]
+console.log(max - min);
 
 
 

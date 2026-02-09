@@ -183,14 +183,14 @@ console.log(isPerfect(28));
 
 let num = 153
 let arr = []
-let temp = num
+// let temp = num
 let count = 0
 let temp2 = 0
-while (temp) {
+while (num) {
     count++
-    temp2 = temp % 10
+    temp2 = num % 10
     arr.push(temp2)
-    temp = Math.floor(temp / 10)
+    num = Math.floor(num / 10)
 }
 
 for (let i = 0; i < count; i++) {
