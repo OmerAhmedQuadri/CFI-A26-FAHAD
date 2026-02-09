@@ -93,28 +93,80 @@ console.log(duplicates);
 
 
 // Move all zeros to end
-let arr4 = []
+let arr4 = [0, 2, 3, 4, 0, 3]
+let store = []
+for (let i = 0; i < arr4.length; i++) {
+    if (arr4[i] !== 0) {
+        store.push(arr[i])
+    }
+}
+for (let i = 0; i < arr4.length; i++) {
+    if (arr4[i] == 0) {
+        store.push(arr4[i])
+    }
+}
+console.log(store);
 
 // Move all zeros to start
-
+let arr5 = [0, 2, 3, 4, 0, 3]
+let store1 = []
+for (let i = 0; i < arr5.length; i++) {
+    if (arr5[i] !== 0) {
+        store1.push(arr[i])
+    }
+}
+for (let i = 0; i < arr5.length; i++) {
+    if (arr5[i] == 0) {
+        store1.unshift(arr5[i])
+    }
+}
+console.log(store1);
 
 // Separate even and odd numbers
-
+let arr6 = [1, 2, 3, 4, 5]
+let even = []
+let odd = []
+for (let i = 0; i < arr6.length; i++) {
+    if (arr6[i] % 2 == 0) {
+        even.push(arr6[i])
+    } else {
+        odd.push(arr6[i])
+    }
+}
+console.log(even, odd);
 
 // Separate positive and negative numbers
-
+let arr7 = [-1, 2, -4, 3]
+let positive = []
+let negative = []
+for (let i = 0; i < arr7.length; i++) {
+    if (arr7[i] < 0) {
+        negative.push(arr7[i])
+    } else {
+        positive.push(arr7[i])
+    }
+} console.log(positive, negative);
 
 // Rotate array left by 1
-
+let arr8 = [1, 2, 3, 4, 5]
+let left = arr8.shift()
+arr8.push(left)
+console.log(arr8);
 
 // Rotate array right by 1
-
+let arr9 = [1, 2, 3, 4, 5]
+let right = arr9.pop()
+arr9.unshift(right)
+console.log(arr9);
 
 // Rotate array by k positions
 
 
 // Merge two arrays
-
+let arr10 = [1, 2, 3, 4, 5]
+let arr11 = [6, 7, 8, 9, 10]
+arr10.push(...arr11)
+console.log(arr10);
 
 // Merge two sorted arrays
 
