@@ -1,6 +1,9 @@
-function sayHello(a, b) {
+function add(a, b) {
     console.log(a + b);
 }
 
-sayHello(1, 2)
+add(1, 2)
 
+export default function sayHello(name) {
+    console.log('Hello', name);
+}
