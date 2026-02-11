@@ -1,9 +1,9 @@
 let num = [21, 23, 34, 65, 76, 98, 104]
 
-for (const element of num) {
-    console.log(element);
+// for (const element of num) {
+//     console.log(element*2);
 
-}
+// }
 
 for (const element in num) {
     console.log(element);
