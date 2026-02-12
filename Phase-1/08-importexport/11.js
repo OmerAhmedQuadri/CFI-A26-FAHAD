@@ -10,3 +10,4 @@ const fruitsObject = fruitsArray.reduce((obj, fruit) => {
     return obj
 }, {})
 console.log(fruitsObject);
+
