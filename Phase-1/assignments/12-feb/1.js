@@ -4,7 +4,8 @@
 const nums = [5, 10, 15, 20, 25]
 // Use .reduce() to find the sum of all numbers. Expected output: 75
 const sum = nums.reduce((acc, curr) => {
-    return acc + curr
+    acc = acc + curr
+    return acc
 })
 console.log(sum);
 
