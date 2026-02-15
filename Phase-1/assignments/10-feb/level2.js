@@ -152,3 +152,4 @@ const posi = nums2.filter((ele) => {
     return ele ** 2
 })
 console.log(posi);
+
