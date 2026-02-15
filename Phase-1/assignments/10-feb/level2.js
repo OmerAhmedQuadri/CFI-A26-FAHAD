@@ -74,3 +74,81 @@ students.map((ele) => {
     }
 })
 console.log(students);
+
+
+// Q16. You have this array:
+
+const words = ['cat', 'elephant', 'dog', 'hippopotamus', 'rat']
+// Use .filter() to return only words with more than 4 characters, then use .map() to capitalize the first letter of each word. Expected output: ['Elephant', 'Hippopotamus']
+const four = words.filter((ele) => {
+    if (ele.length > 4) {
+        return true
+    }
+}).map((ele) => {
+    ele[0].toUpperCase()
+    return ele
+})
+
+console.log(four);
+
+// Q17. You have this array:
+
+const emails = ['Alice@Gmail.com', 'BOB@YAHOO.COM', 'charlie@hotmail.COM']
+// Use .map() to return all emails in lowercase. Expected output: ['alice@gmail.com', 'bob@yahoo.com', 'charlie@hotmail.com']
+const mails = emails.map((ele) => {
+    return ele.toLowerCase()
+})
+console.log(mails);
+
+
+// Q18. You have this array:
+
+const nums1 = [1, 2, 3, 4, 5]
+// Use .map() to return an array of objects like this: Expected output:
+
+// [
+//   { value: 1, square: 1 },
+//   { value: 2, square: 4 },
+//   { value: 3, square: 9 },
+//   { value: 4, square: 16 },
+//   { value: 5, square: 25 }
+// ]
+
+const obj = nums1.map((ele) => {
+    return { value: ele, square: ele * ele }
+})
+console.log(obj);
+
+
+// Q19. You have this object:
+
+const user = {
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 28,
+    email: 'john@example.com',
+    isActive: true
+}
+// Use Object.keys() and .forEach() together to print every key and its value like:
+
+// firstName: John
+// lastName: Doe
+// ...
+Object.keys(user).forEach(key => {
+    console.log(`${key}: ${user[key]}`);
+});
+
+
+// Q20. You have this array:
+
+const nums2 = [-5, -3, 0, 2, 4, -1, 7, -8]
+// Use .filter() to return only positive numbers (greater than 0), then use .map() to return their squares.
+
+const posi = nums2.filter((ele) => {
+    if (ele > 0) {
+        return true
+    }
+}).map((ele) => {
+    return ele ** 2
+})
+console.log(posi);
