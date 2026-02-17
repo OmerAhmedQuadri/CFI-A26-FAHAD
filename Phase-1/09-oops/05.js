@@ -32,3 +32,5 @@ const doggo = new dog('cow', 2000, 'akshay kumar', 'oogabooga')
 console.log(doggo);
 doggo.getDetails()
 doggo.getSound()
+doggo.getSound()
+doggo.getSound()
