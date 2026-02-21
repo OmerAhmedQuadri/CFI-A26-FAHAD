@@ -3,7 +3,7 @@
 // Q11. Create a variable age with value 15.
 // Print "Adult" if age is 18 or more, otherwise print "Minor".
 let age1 = 15
-if (age >= 18) {
+if (age1 >= 18) {
     console.log("Adult");
 } else {
     console.log("Minor");

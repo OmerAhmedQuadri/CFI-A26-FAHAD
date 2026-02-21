@@ -77,6 +77,14 @@ while (i4 < 4) {
 // A B
 // A B C
 // A B C D
+let str0 = 'ABCD'
+let i0 = 0
+let abcd = ''
+while (i0 < str0.length) {
+    console.log(abcd = abcd + str0[i0] + ' ');
+    i0++
+}
+
 
 
 

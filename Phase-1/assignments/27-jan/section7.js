@@ -52,5 +52,5 @@ console.log(grade)
 
 // Q60. Convert if...else to ternary.
 let score2 = 55
-let result2 = score >= 50 ? 'Pass' : 'Fail'
+let result2 = score2 >= 50 ? 'Pass' : 'Fail'
 console.log(result2)
