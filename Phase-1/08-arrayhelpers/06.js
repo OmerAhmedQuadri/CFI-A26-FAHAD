@@ -11,4 +11,4 @@ console.log(a);
 let newArr = arr.filter((val) => {
     if (val <= 10) return true
 })
-console.log(newArr)
+console.log(newArr);
