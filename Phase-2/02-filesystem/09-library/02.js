@@ -16,6 +16,7 @@ fs.readFile(db, 'utf-8', (err, data) => {
         console.log(chlk.yellow`3: DELETE GAMES`);
         console.log(chlk.cyanBright`4: UPDATE GAMES`);
         console.log(chlk.green`5: EXIT`);
+        
 
         const choice = questionInt(chlk.magenta`enter your choice: `)
         switch (choice) {
