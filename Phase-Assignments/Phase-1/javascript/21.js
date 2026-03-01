@@ -15,3 +15,4 @@ function max(a, b, c) {
 
 max(1, 2, 3)
 // // / Expected Output: <write expected output></write>
+// 3 is the max

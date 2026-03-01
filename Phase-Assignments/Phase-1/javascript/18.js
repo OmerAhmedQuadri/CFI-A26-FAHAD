@@ -9,3 +9,4 @@ let arr1 = arr.filter((ele) =>
 console.log(arr1);
 
 // / Expected Output: <write expected output></write>
+// [ 10, 30, 40 ]

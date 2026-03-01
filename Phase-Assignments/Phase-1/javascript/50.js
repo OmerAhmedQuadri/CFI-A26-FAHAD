@@ -46,3 +46,10 @@ let median = (arr[(n - 1)] + arr[n]) / 2
 console.log(`median: ${median}`);
 
 // / Expected Output: <write expected output>
+// [
+//   75, 75, 30,  9, 11,
+//   56, 69, 74, 47,  4
+// ]
+// mean: 45
+// mode: 75
+// median: 62.5

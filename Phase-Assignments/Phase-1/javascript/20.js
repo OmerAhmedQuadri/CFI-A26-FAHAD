@@ -14,3 +14,10 @@ let id = setInterval(() => {
 }, 1000)
 
 // // / Expected Output: <write expected output></write>
+// 5
+// 4
+// 3
+// 2
+// 1
+// 0
+// times up!

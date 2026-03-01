@@ -18,3 +18,4 @@ console.log(minOf(arr));
 
 
 // / Expected Output: <write expected output></write>
+// 1

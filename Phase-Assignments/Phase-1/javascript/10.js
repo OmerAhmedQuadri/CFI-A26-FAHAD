@@ -27,3 +27,5 @@ console.log(factorial(n));
 
 
 // / Expected Output: <write expected output></write>
+// 120
+// 120

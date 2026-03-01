@@ -7,3 +7,4 @@ let arr1 = arr.reduce((acc, curr) => acc + curr)
 console.log(arr1);
 
 // / Expected Output: <write expected output></write>
+// 15

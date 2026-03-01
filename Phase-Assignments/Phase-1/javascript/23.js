@@ -13,3 +13,4 @@ function prime(num) {
 console.log(prime(7));
 
 // // / Expected Output: <write expected output></write>
+// true

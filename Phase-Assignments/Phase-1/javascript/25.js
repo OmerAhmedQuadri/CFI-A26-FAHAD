@@ -7,6 +7,5 @@ let arr2 = arr.reduce((acc,curr)=>{
 })
 console.log(arr2);
 
-
-
 // // / Expected Output: <write expected output></write>
+// 20

@@ -15,5 +15,5 @@ function leapYear(year) {
 
 leapYear(2008)
 
-
 // / Expected Output: <write expected output></write>
+// IT IS A LEAP YEAR

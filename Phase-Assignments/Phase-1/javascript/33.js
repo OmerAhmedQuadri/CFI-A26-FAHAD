@@ -9,3 +9,4 @@ function convert(Celsius) {
 console.log(convert(32), 'F');
 
 // / Expected Output: <write expected output>
+// 89.6 F

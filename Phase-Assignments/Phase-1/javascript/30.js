@@ -12,3 +12,8 @@ function print(i) {
 
 print(1)
 // // / Expected Output: <write expected output></write>
+// 1
+// 2
+// 3
+// 4
+// 5

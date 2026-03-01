@@ -17,6 +17,5 @@ let arr2 = arr.reduce((acc, curr) => {
 }, {})
 console.log(arr2);
 
-
-
 // / Expected Output: <write expected output>
+// { a: 3, b: 2, c: 1 }

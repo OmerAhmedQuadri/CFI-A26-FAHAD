@@ -1,5 +1,7 @@
+import chalk from 'chalk'
 import fs from 'fs/promises'
 import readline from 'readline-sync'
+
 
 let filename = './tasks.json'
 
@@ -21,7 +23,7 @@ async function createtask() {
 
     data.push(create)
     await fs.writeFile(filename, JSON.stringify(data, null, 4))
-    console.log('TASK CREATED SUCCESFULLY');
+    console.log(chalk.bgGreenBright('TASK CREATED SUCCESFULLY'));
 
 }
 
@@ -42,14 +44,14 @@ async function updatetask() {
 
 
     await fs.writeFile(filename, JSON.stringify(data, null, 4))
-    console.log('TASK updated SUCCESFULLY');
+    console.log(chalk.bgGreenBright('TASK updated SUCCESFULLY'));
 }
 
 // updatetask()
 
 async function printtask() {
     let data = await fs.readFile(filename, 'utf-8')
-    console.log(data);
+    console.table(data);
 }
 // printtask()
 
@@ -63,20 +65,20 @@ async function deletetask() {
 
     data.splice(index, 1)
     await fs.writeFile(filename, JSON.stringify(data, null, 4))
-    console.log('TASK deleted SUCCESFULLY');
+    console.log(chalk.bgGreenBright('TASK deleted SUCCESFULLY'));
 
 }
 // deletetask()
 
 while (true) {
-    console.log(`===TASKY=== 
+    console.log(chalk.italic.blueBright.bold.bgRedBright`===TASKY=== 
 1: CREATE TASK
 2: UPDATE TASK
 3:PRINT TASKS
 4:DELETE TASKS
 5: EXIT`);
 
-    let choice = readline.questionInt("ENTER YOUR CHOICE: ")
+    let choice = readline.questionInt(chalk.greenBright("ENTER YOUR CHOICE: "))
     if (choice == 5) {
         console.log('byebye');
         break;
@@ -97,7 +99,7 @@ while (true) {
             await deletetask()
             break;
         default:
-            console.log("enter a valid choice");
+            console.log(chalk.redBright("enter a valid choice"));
             break;
     }
 }

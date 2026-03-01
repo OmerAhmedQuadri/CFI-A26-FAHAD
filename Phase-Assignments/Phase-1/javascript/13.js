@@ -7,3 +7,4 @@ let arr1 = arr.filter((ele) => ele.length > 4)
 console.log(arr1);
 
 // / Expected Output: <write expected output></write>
+// [ 'hypoteneus', 'javascript' ]

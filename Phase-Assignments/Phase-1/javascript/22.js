@@ -13,3 +13,4 @@ console.log(avg);
 
 
 // // / Expected Output: <write expected output></write>
+// 3

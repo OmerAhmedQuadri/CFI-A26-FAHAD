@@ -26,3 +26,7 @@ console.log(largest2);
 console.log(smallest2);
 
 // / Expected Output: <write expected output>
+// 9
+// 1
+// 9
+// 1

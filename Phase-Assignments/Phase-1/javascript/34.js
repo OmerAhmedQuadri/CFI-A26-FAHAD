@@ -46,5 +46,20 @@ while (true) {
 
 }
 
-
 // / Expected Output: <write expected output>
+// ===AREA OF SHAPES===
+// 0: EXIT
+// 1: AREA OF SQUARE
+// 2: AREA OF RECTANGLE
+// 3: AREA OF CIRCLE
+// ENTER A CHOICE: 1
+// ENTER A SIDE: 4
+// The Area of Square is: 16
+
+// ===AREA OF SHAPES===
+// 0: EXIT
+// 1: AREA OF SQUARE
+// 2: AREA OF RECTANGLE
+// 3: AREA OF CIRCLE
+// ENTER A CHOICE: 0
+// exiting...
