@@ -3,7 +3,7 @@
 
 let arr = [2, 4, 3, 1, 5]
 console.log(arr.sort())
-
+console.log(arr);
 
 // // / Expected Output: <write expected output></write>
 // [ 1, 2, 3, 4, 5 ]

@@ -3,8 +3,8 @@
 
 
 // The for…of loop is used when you want to loop over values. Each loop gives you the actual value stored in the array or string.
-for (let value of [10, 20, 30]) {
-    console.log(value);
+for (let ele of [10, 20, 30]) {
+    console.log(ele);
 }
 
 // The for…in loop is used when you want to loop over keys or property names. It is mainly used with objects. When used on arrays, it gives indexes instead of values,

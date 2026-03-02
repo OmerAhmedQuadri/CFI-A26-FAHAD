@@ -1,6 +1,5 @@
 // / Q No : 07
-// / Question: 7. Write a function that takes a number and prints EVEN or ODD, or throws
-// an error if the given argument is not a number.
+// / Question: 7. Write a function that takes a number and prints EVEN or ODD.
 
 import { questionInt } from 'readline-sync';
 

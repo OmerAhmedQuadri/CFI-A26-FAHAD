@@ -3,7 +3,7 @@
 // example and explain where it is useful.
 
 
-// An IIFE is a function that is defined and executed at the same time. Instead of defining a function and calling it later, you wrap the function in parentheses and run it immediately.
+// An IIFE is a function that is defined and executed at the same time.you wrap the function in parentheses and run it immediately.
 
 (function IIFE() {
     console.log("This runs immediately");
