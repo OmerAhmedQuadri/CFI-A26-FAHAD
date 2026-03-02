@@ -1,6 +1,6 @@
-// / Q No : 01
-// // / Question: <paste the question here>
-// // / Expected Output: <write expected output></write>
+// / Q No : 24
+// // / Question: 24. What is the difference between break and continue? Give one example
+// of each.
 
 // break is used to stop a loop completely. When the program reaches break, it immediately exits the loop and continues with the code written after the loop.
 for (let i = 1; i < 5; i++) {

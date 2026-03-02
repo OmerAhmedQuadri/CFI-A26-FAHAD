@@ -4,4 +4,4 @@
 
 // Hoisting is javaScript’s behavior of moving declarations to the top of their scope before the code runs. Variables declared with var are automatically given the value undefined.
 
-// Variables declared with let and const are also hoisted, but they are not initialized. If you try to use them before their declaration, JavaScript throws an error.
+// Variables declared with let and const are also hoisted, but they are not initialized. If you try to use them before their declaration, JavaScript throws an error.1`

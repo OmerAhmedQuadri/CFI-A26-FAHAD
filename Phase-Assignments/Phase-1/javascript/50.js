@@ -10,6 +10,8 @@ for (let i = 0; i < 10; i++) {
 }
 console.log(arr);
 
+
+//mean
 let sum = 0
 
 for (let i = 0; i < arr.length; i++) {
@@ -18,6 +20,8 @@ for (let i = 0; i < arr.length; i++) {
 let mean = sum / arr.length
 console.log(`mean: ${mean}`);
 
+
+//mode
 let mode = arr[0]
 let maxcount = 1
 for (let i = 0; i < arr.length; i++) {
@@ -39,7 +43,7 @@ if (maxcount == 1) {
     console.log(`mode: ${mode}`);
 }
 
-
+//median
 arr.sort()
 let n = arr.length / 2
 let median = (arr[(n - 1)] + arr[n]) / 2
