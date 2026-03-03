@@ -13,7 +13,7 @@ function rectangle(l, b) {
     return console.log(`The Area of Rectangle is: ${l * b}`);
 }
 function circle(r) {
-    return console.log(`The Area of Cirle is: ${3.14 * (r ** 2)}`);
+    return console.log(`The Area of Circle is: ${3.14 * (r ** 2)}`);
 }
 
 while (true) {
