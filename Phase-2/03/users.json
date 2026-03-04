@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1772613214439,
+        "username": "fahad",
+        "password": "$2b$12$R.cMrD72dN7P.j/TodoJVu5LZo3agI/mY8ULFieOjo.atGTQzphpy"
+    },
+    {
+        "id": 1772617260450,
+        "email": "fahad@gmail.com",
+        "password": "$2b$12$zUBgvO37t3mAARxcuDvGAej7Kbgn9ayVNsJ8Rg1p0hj2U05B0QpWi",
+        "verified": false,
+        "otp": 885180
+    }
+]
