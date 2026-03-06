@@ -17,7 +17,7 @@ app.get('/api/tasks', async (req, res) => {
 })
 
 app.get('/api/tasks/:id', async (req, res) => {
-    const { id } = req.params
+    const  id  = req.params.id
     const tasks = await readDB()
     const task = tasks.find(tsk => tsk.id == id)
     console.log(task);
@@ -26,45 +26,45 @@ app.get('/api/tasks/:id', async (req, res) => {
     res.json({ status: true, message: 'task found', task: task })
 })
 
-// app.post('/api/create', (req, res, next) => {
-//     const newTask = req.body
-//     if (!newTask.id || !newTask.task) return res.send('invalid task')
-// }, async (req, res) => {
-//     const tasks = await readDB()
-//     const newTask = req.body
-
-//     const index = tasks.findIndex((tsk) => {
-//         return tsk.id == newTask.id
-//     })
-
-//     if (index != -1) return res.json('task already exists')
-//     tasks.push(newTask)
-//     await writeDB(tasks)
-//     res.send('task created sucessfull', newTask)
-
-// })
-
-const createTaskMiddleware = (req, res, next) => {
-
+app.post('/api/create', (req, res, next) => {
     const newTask = req.body
-    if (!newTask.id || !newTask.task) return res.send('middleware says invalid data')
-    next()
-
-}
-
-const createTaskController = async (req, res) => {
+    if (!newTask.id || !newTask.task) return res.send('invalid task')
+}, async (req, res) => {
     const tasks = await readDB()
     const newTask = req.body
 
-    const index = tasks.findIndex(task => task.id == newTask.id)
-    if (index != -1) return res.send('task already exists')
-    console.log(newTask);
+    const index = tasks.findIndex((tsk) => {
+        return tsk.id == newTask.id
+    })
+
+    if (index != -1) return res.json('task already exists')
     tasks.push(newTask)
     await writeDB(tasks)
+    res.send('task created sucessfull', newTask)
 
-    res.send('task created successfully')
-}
-app.post('/api/create', createTaskMiddleware, createTaskController)
+})
+
+// const createTaskMiddleware = (req, res, next) => {
+
+//     const newTask = req.body
+//     if (!newTask.id || !newTask.task) return res.send('middleware says invalid data')
+//     next()
+
+// }
+
+// const createTaskController = async (req, res) => {
+//     const tasks = await readDB()
+//     const newTask = req.body
+
+//     const index = tasks.findIndex(task => task.id == newTask.id)
+//     if (index != -1) return res.send('task already exists')
+//     console.log(newTask);
+//     tasks.push(newTask)
+//     await writeDB(tasks)
+
+//     res.send('task created successfully')
+// }
+// app.post('/api/create', createTaskMiddleware, createTaskController)
 
 
 

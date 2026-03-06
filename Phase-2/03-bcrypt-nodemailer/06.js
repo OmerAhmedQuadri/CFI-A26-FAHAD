@@ -2,8 +2,8 @@ import fs from 'fs/promises'
 import { hashPassword, comparePassword } from './01-bcrypt.js'
 import { question, questionInt } from 'readline-sync'
 import { sendEmail } from './05-1.js'
-import { verify } from 'crypto'
-import { writeFile } from 'fs'
+// import { verify } from 'crypto'
+// import { writeFile } from 'fs'
 
 const createUser = async () => {
     const user = {

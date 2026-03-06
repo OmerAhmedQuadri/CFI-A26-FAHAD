@@ -10,7 +10,7 @@
 
 // const mailOptions = {
 //     from: 'faddukhan3@gmail.com',
-//     to: 'faddukhan2@gmail.com',
+//     to: 'tahaxli003@gmail.com',
 //     subject: 'testing node mailer',
 //     text: 'testing the node mailer for the first time'
 // }
@@ -38,9 +38,9 @@ let text = rs.question('ENTER THE MESSAGE YOU WANNA SEND: ')
 
 const mail = {
     from: 'faddukhan3@gmail.com',
-    to: 'faddukhan2@gmail.com',
+    to: 'tahaxli003@gmail.com',
     subject: subject,
     text: text
 }
 
-// await transporter.sendMail(mail)
+await transporter.sendMail(mail)

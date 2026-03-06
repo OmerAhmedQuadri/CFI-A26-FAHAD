@@ -11,5 +11,5 @@ setTimeout(() => {
     console.log('I am just getting started with Adv. JS');
     setTimeout(() => {
         console.log('I am just getting started again.');
-    }, 1500);
+    }, 2500);
 }, 2000);

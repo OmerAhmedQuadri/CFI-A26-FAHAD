@@ -10,10 +10,10 @@ app.get('/', (req, res) => {
 
 app.get('/users/:username', (req, res) => {
 
-    const username = req.params.username
+    // const username = req.params.username
 
     res.send({
-        name: username,
+        name: req.params.username,
         role: 'developer'
     })
 })
