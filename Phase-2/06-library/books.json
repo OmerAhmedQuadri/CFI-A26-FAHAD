@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "author": "George Orwell",
+        "title": "1984",
+        "price": 399
+    },
+    {
+        "id": "2",
+        "author": "J",
+        "title": "my Hobbit",
+        "price": 2
+    },
+    {
+        "id": 4,
+        "author": "F. Scott Fitzgerald",
+        "title": "The Great Gatsby",
+        "price": 299
+    },
+    {
+        "id": 5,
+        "author": "J.R.R. Tolkien",
+        "title": "The Hobbit",
+        "price": 450
+    },
+    {
+        "id": 6,
+        "author": "J.R.R. Tolkien",
+        "title": "The Hobbit",
+        "price": 450
+    },
+    {
+        "id": 7,
+        "author": "J.R.R. Tolkien",
+        "title": "The Hobbit",
+        "price": 450
+    }
+]
