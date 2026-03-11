@@ -8,7 +8,7 @@ export const createTask = async (req, res) => {
 
         if (!task || !deadline || !priority) { return res.send('incomplete or invalid data') }
 
-        const existingTask = Task.findOne({ task: task })
+        const existingTask = await Task.findOne({ task: task })
         if (existingTask) return res.status(400).send({
             success: false,
             message: 'Task Already Exists',
@@ -37,11 +37,11 @@ export const createTask = async (req, res) => {
 
 export const getAllTask = async (req, res) => {
     const allTasks = await Task.find()
-    if(!allTasks) return res.status(400).send({
-            success: false,
-            message: 'tasks not found',
-            data: null
-        })
+    if (!allTasks) return res.status(400).send({
+        success: false,
+        message: 'tasks not found',
+        data: null
+    })
     res.send(allTasks)
 }
 
@@ -75,4 +75,104 @@ export const getTaskById = async (req, res) => {
 
         })
     }
+}
+
+export const getTaskByPriority = async (req, res) => {
+    try {
+        const { priority } = req.params
+        const taskbypriority = await Task.find({ priority })
+
+        if (!['high', 'medium', 'low'].includes(priority)) return res.status(400).send({
+            success: false,
+            message: 'Invalid Priority',
+            data: null
+        })
+
+        if (!taskbypriority) return res.status(400).send({
+            success: false,
+            message: 'Task not found with priority ' + priority,
+            data: null
+        })
+
+        res.send({
+            success: true,
+            message: 'Task fetched Successfully',
+            data: taskbypriority
+        })
+    } catch (error) {
+        console.log(error);
+
+        res.status(500).send({
+            success: false,
+            message: 'Internal Serval Error',
+            data: error
+
+        })
+    }
+}
+
+export const deleteTask = async (req, res) => {
+    try {
+        const { id } = req.params
+        if (id.length != 24) return res.status(400).send({
+            success: false,
+            message: 'Invalid id length',
+            data: null
+        })
+        const task = await Task.findByIdAndDelete(id)
+        console.log(task);
+
+        if (!task) return res.status(400).send({
+            success: false,
+            message: 'Invalid task id',
+            data: null
+        })
+    } catch (error) {
+        console.log(error);
+
+        res.status(500).send({
+            success: false,
+            message: 'Internal Serval Error',
+            data: error
+
+        })
+    }
+
+}
+
+export const updateTask = async (req, res) => {
+    if (!req.body) return res.status(400).send({
+        success: false,
+        message: 'body is missing',
+        data: null
+    })
+
+    const { id, task, deadline, priority, completed } = req.body
+    if (!(task || deadline || priority || !(completed == undefined))) return res.status(400).send({
+        success: false,
+        message: 'enter atleast one parameter',
+        data: null
+    })
+
+    if (!id || id.length != 24) return res.status(400).send({
+        success: false,
+        message: 'Invalid id length',
+        data: null
+    })
+
+    const newTask = await Task.findByIdAndUpdate(id, { task, deadline, priority }, { runValidators: true, new: true })
+
+    if (!newTask) return res.status(400).send({
+        success: false,
+        message: 'Task Not Found',
+        data: null
+    })
+
+    res.send({
+        sucess: true,
+        message: 'task updated successfully',
+        data: newTask
+    })
+
+
 }
