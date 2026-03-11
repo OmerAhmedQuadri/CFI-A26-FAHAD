@@ -3,7 +3,7 @@ import { dbConnect } from './dbConnect.js'
 import { createTask, getAllTask, getTaskById } from './controllers/tasks.controller.js'
 
 const app = express()
-const PORT = 3000
+const PORT = 9856
 
 app.use(express.json())
 
