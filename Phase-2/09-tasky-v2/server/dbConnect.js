@@ -12,6 +12,5 @@ const dbConnect = async () => {
         console.log(error);
     }
 }
-dbConnect()
 
 export default dbConnect
