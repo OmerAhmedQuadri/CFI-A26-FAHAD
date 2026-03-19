@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt'
 import dontenv from 'dotenv'
 dontenv.config()
 
-const salt = process.env.SALT_ROUNDS
+const salt = Number(process.env.SALT_ROUNDS)
 
 export const hashpassword = async (password) => {
     const hashed = await bcrypt.hash(password, salt)

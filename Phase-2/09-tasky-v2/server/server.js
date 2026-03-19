@@ -1,13 +1,17 @@
 import express from 'express'
 import dotenv from 'dotenv'
-import { router } from './routes/user.routes.js'
+import { userRouter } from './routes/user.routes.js'
+import { authRouter } from './routes/auth.routes.js'
 import dbConnect from './dbConnect.js'
 dotenv.config()
 
 const server = express()
 const PORT = process.env.PORT
 
-server.use('/api/users', router)
+server.use(express.json())
+
+server.use('/api/users', userRouter)
+server.use("/api/auth", authRouter)
 
 server.use((req, res) => {
     res.send({
