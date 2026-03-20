@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import { userRouter } from './routes/user.routes.js'
 import { authRouter } from './routes/auth.routes.js'
 import dbConnect from './dbConnect.js'
+import { adminRoutes } from './routes/admin.routes.js'
 dotenv.config()
 
 const server = express()
@@ -12,6 +13,7 @@ server.use(express.json())
 
 server.use('/api/users', userRouter)
 server.use("/api/auth", authRouter)
+server.use('/api/admins', adminRoutes)
 
 server.use((req, res) => {
     res.send({

@@ -1,5 +1,5 @@
 import express from 'express'
-import { verifyEmail, verifyPhone } from '../controllers/auth.controller.js'
+import { adminVerifyEmail, adminVerifyPhone, userVerifyEmail, userVerifyPhone } from '../controllers/auth.controller.js'
 export const authRouter = express.Router()
 
 authRouter.get('/', (req, res) => {
@@ -9,8 +9,11 @@ authRouter.get('/', (req, res) => {
     })
 })
 
-authRouter.get('/verify/email/:token', verifyEmail)
-authRouter.get('/verify/phone/:token', verifyPhone)
+authRouter.get('/user/verify/email/:token', userVerifyEmail)
+authRouter.get('/user/verify/phone/:token', userVerifyPhone)
+
+authRouter.get('/admin/verify/email/:token', adminVerifyEmail)
+authRouter.get('/admin/verify/phone/:token', adminVerifyPhone)
 
 authRouter.use((req, res) => {
     return res.send({
