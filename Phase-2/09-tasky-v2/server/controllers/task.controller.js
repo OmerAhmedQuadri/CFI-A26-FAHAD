@@ -74,7 +74,7 @@ export const createTask = async (req, res) => {
 export const updateTask = async (req, res) => {
     try {
         const { userId } = req.params
-        const {taskId} = req.params
+        const { taskId } = req.params
         const { taskname, deadline, priority } = req.body
 
         if (!taskname || !deadline) {
@@ -99,7 +99,7 @@ export const updateTask = async (req, res) => {
             })
         }
 
-       const task = user.tasks.id(taskId)
+        const task = user.tasks.id(taskId)
 
         if (!task) {
             return res.status(404).json({
@@ -126,4 +126,39 @@ export const updateTask = async (req, res) => {
             message: 'Internal server error'
         })
     }
+}
+
+export const deleteTask = async (req, res) => {
+    try {
+        const { userId } = req.params
+        const { taskId } = req.params
+        const user = await User.findById(userId)
+        if (!user) {
+            return res.status(400).json({
+                success: false,
+                message: "user not found"
+            })
+        }
+
+        const task = user.tasks.id(taskId)
+        if (!task) {
+            return res.status(400).json({
+                success: false,
+                message: "task not found"
+            })
+        }
+        await task.deleteOne()
+        await user.save()
+
+        res.json({
+            success: true,
+            message: "delete task successful"
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Internal server error"
+        })
+    }
+
 }

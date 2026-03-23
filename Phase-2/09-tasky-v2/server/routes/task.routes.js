@@ -1,8 +1,20 @@
 import express from 'express'
-import { createTask, getTaskByUser, updateTask } from '../controllers/task.controller.js'
+import { createTask, deleteTask, getTaskByUser, updateTask } from '../controllers/task.controller.js'
 
 export const taskRouter = express.Router()
+
+adminRoutes.get('/', (req, res) => {
+    res.send('task route is working')
+})
 
 taskRouter.get('/:userId', getTaskByUser)
 taskRouter.post('/:userId/create', createTask)
 taskRouter.post('/:userId/:taskId/update', updateTask)
+taskRouter.post('/:userId/:taskId/delete', deleteTask)
+
+userRouter.use((req, res) => {
+    return res.send({
+        success: false,
+        message: 'Route not found'
+    })
+})
