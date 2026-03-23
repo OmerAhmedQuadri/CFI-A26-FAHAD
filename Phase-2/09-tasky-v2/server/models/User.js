@@ -56,7 +56,8 @@ const userSchema = new mongoose.Schema({
         {
             taskname: {
                 type: String,
-                required: true
+                required: true,
+                unique: true
             },
             deadline: {
                 type: String,
