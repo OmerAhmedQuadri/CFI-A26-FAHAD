@@ -3,7 +3,7 @@ import { createTask, deleteTask, getTaskByUser, updateTask } from '../controller
 
 export const taskRouter = express.Router()
 
-adminRoutes.get('/', (req, res) => {
+taskRouter.get('/', (req, res) => {
     res.send('task route is working')
 })
 
@@ -12,7 +12,7 @@ taskRouter.post('/:userId/create', createTask)
 taskRouter.post('/:userId/:taskId/update', updateTask)
 taskRouter.post('/:userId/:taskId/delete', deleteTask)
 
-userRouter.use((req, res) => {
+taskRouter.use((req, res) => {
     return res.send({
         success: false,
         message: 'Route not found'
