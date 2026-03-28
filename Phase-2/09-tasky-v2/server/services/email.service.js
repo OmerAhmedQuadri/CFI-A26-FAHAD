@@ -1,30 +1,21 @@
-import { Resend } from "resend";
+import { Resend } from 'resend';
 import dotenv from 'dotenv'
+
 dotenv.config()
+const resend = new Resend(process.env.RESEND_API);
 
-const resendApi = process.env.RESEND_API
-const resend = new Resend(resendApi);
-
-export const sendEmail = async (userMail) => {
+export async function sendEmail(userData) {
     const { data, error } = await resend.emails.send({
-        from: "mail@fahadnawaz.in",
-        to: userMail.to,
-        subject: userMail.subject,
-        html: userMail.html,
+        from: 'tasky@fahadnawaz.in',
+        to: userData.to,
+        subject: userData.subject,
+        html: userData.html,
+        text: userData.text,
     });
 
     if (error) {
-        return console.log(error);
+        return console.error({ error });
     }
 
-    console.log(data);
-};
-
-
-const data = {
-    to: "zaydkhan2127@gmail.com",
-    subject: "hulahoo",
-    html: "<h1>wasguddd</h1>",
+    console.log({ data });
 }
-
-sendEmail(data)

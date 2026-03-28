@@ -1,4 +1,5 @@
 import User from '../models/User.js'
+import { sendEmail } from '../services/email.service.js'
 import { hashpassword } from '../utils/bcrypt.js'
 import { token } from '../utils/tokens.js'
 
@@ -24,6 +25,22 @@ export const registerUser = async (req, res) => {
             message: 'user created successfully',
             data: user
         })
+
+        const emailData = {
+            to: newUser.email,
+            subject: 'Tasky verification',
+            // html: `http://localhost:3000/api/auth/verify/email/${user._id}/${user.tokens.email}`
+            html: `<h1>Hello ${user.fullname}</h1>
+            <p>Click <a href="http://localhost:3000/api/auth/verify/email/${user._id}/${user.tokens.email}" target="_blank">here</a> to verify your email.</p>`
+        }
+        await sendEmail(emailData)
+        res.send({
+            success: true,
+            message: 'user created successfully',
+            data: user
+        })
+
+
 
     } catch (error) {
         console.log(error);
