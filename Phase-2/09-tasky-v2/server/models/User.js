@@ -51,7 +51,7 @@ const userSchema = new mongoose.Schema({
             default: false
         },
     },
-    
+
      status: {
         type: String,
         required: true,
@@ -65,7 +65,6 @@ const userSchema = new mongoose.Schema({
             taskname: {
                 type: String,
                 required: true,
-                unique: true
             },
             deadline: {
                 type: String,

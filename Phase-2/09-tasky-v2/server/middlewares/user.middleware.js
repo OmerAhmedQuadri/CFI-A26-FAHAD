@@ -38,34 +38,54 @@ export const validateUserRegistrationData = (data) => {
 }
 
 export const registerMiddleware = async (req, res, next) => {
-    const user = req.body
-    const validate = validateUserRegistrationData(user)
-    if (validate.length != 0) {
-        return res.json({
+    try {
+        const user = req.body;
+
+        if (!user.fullname || user.fullname.length < 3) {
+            return res.status(400).json({
+                success: false,
+                message: "Full name must be at least 3 characters",
+            });
+        }
+
+        if (!user.email || !user.email.includes("@")) {
+            return res.status(400).json({
+                success: false,
+                message: "Valid email is required",
+            });
+        }
+
+        if (!user.phone || user.phone.length < 10) {
+            return res.status(400).json({
+                success: false,
+                message: "Valid phone number is required",
+            });
+        }
+
+        if (!user.password || user.password.length < 8) {
+            return res.status(400).json({
+                success: false,
+                message: "Password must be at least 8 characters",
+            });
+        }
+
+        req.userData = {
+            fullname: user.fullname.trim(),
+            email: user.email.toLowerCase().trim(),
+            phone: user.phone.trim(),
+            password: user.password,
+            role: user.role || "user",
+        };
+
+        next();
+    } catch (error) {
+        return res.status(500).json({
             success: false,
-            message: 'Invalid user registraion data',
-            data: validate
-        })
+            message: "Error in registration validation",
+            error: error.message,
+        });
     }
-
-    const existing = await User.findOne({ "email": user.email })
-    if (existing) {
-        return res.json({
-            success: false,
-            message: 'User with email already exists'
-        })
-    }
-
-    req.userData = {
-        email: userData.email,
-        phone: userData.phone,
-        fullname: userData.fullname,
-        password: userData.password,
-        role: userData.role,
-    }
-
-    next()
-}
+};
 
 export const loginMiddleware = async (req, res, next) => {
     const { email, password } = req.body

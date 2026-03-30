@@ -1,30 +1,30 @@
 import express from 'express'
 import { adminLoginMiddleware, assignTaskMiddleware } from '../middlewares/admin.middlewares.js'
-import { adminLogin, assignTask, createUser, getAllUsers, updateUserStatus } from '../controllers/admin.controllers.js'
-import { registerMiddleware } from '../middlewares/user.middlewares.js'
-import { adminAuthMiddleware } from '../middlewares/auth.middlewares.js'
+import { adminLogin, assignTask, createUser, getAllUsers, updateUserStatus } from '../controllers/admin.controller.js'
+import { registerMiddleware } from '../middlewares/user.middleware.js'
+import { adminAuthMiddleware } from '../middlewares/auth.middleware.js'
 
-const router = express.Router()
+const adminRoutes = express.Router()
 
-router.get('/', (req, res) => {
+adminRoutes.get('/', (req, res) => {
     res.send({
         success: true,
-        message: 'admin router is working just fine'
+        message: 'admin adminRoutes is working just fine'
     })
 })
 
-router.post('/login', adminLoginMiddleware, adminLogin)
+adminRoutes.post('/login', adminLoginMiddleware, adminLogin)
 
-router.use(adminAuthMiddleware)
-router.get('/getAllUsers', getAllUsers)
-// router.get('/getUser/:id', getUserById)  // TODO
+adminRoutes.use(adminAuthMiddleware)
+adminRoutes.get('/getAllUsers', getAllUsers)
+// adminRoutes.get('/getUser/:id', getUserById)  // TODO
 
-router.post('/create-user', registerMiddleware, createUser)
-router.post('/assign-task', assignTaskMiddleware, assignTask)
-router.put('/update/user-status', updateUserStatus)
-// router.delete('/delete-user/:userId', deleteUser)  // TODO
+adminRoutes.post('/create-user', registerMiddleware, createUser)
+adminRoutes.post('/assign-task', assignTaskMiddleware, assignTask)
+adminRoutes.put('/update/user-status', updateUserStatus)
+// adminRoutes.delete('/delete-user/:userId', deleteUser)  // TODO
 
-router.use((req, res) => {
+adminRoutes.use((req, res) => {
     return res.send({
         success: false,
         message: 'Admin route not found'
@@ -32,7 +32,7 @@ router.use((req, res) => {
 })
 
 
-export default router
+export default adminRoutes
 
 /*
     GET:
