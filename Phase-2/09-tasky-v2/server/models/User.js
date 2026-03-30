@@ -51,6 +51,14 @@ const userSchema = new mongoose.Schema({
             default: false
         },
     },
+    
+     status: {
+        type: String,
+        required: true,
+        enum: ['active', 'disabled', 'banned'],
+        default: 'active'
+    },
+
 
     tasks: [
         {

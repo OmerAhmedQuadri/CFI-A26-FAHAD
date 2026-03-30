@@ -60,10 +60,19 @@ export const loginUser = async (req, res) => {
         message: 'Please verify your phone before login',
     })
 
+    const payload = {
+        id: user._id,
+        email: user.email,
+        role: 'user'
+    }
+
+    const token = await generateJWTToken(payload)
+    // user.jwtToken = token
+
     res.send({
         success: true,
         message: 'user login successfull',
-        data: user
+        data: ({ user, token: token })
     })
 }
 

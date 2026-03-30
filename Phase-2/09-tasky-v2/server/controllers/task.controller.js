@@ -165,3 +165,54 @@ export const deleteTask = async (req, res) => {
     }
 
 }
+
+export const updatestatus = async (req, res) => {
+    try {
+        const taskId = req.params.taskId
+        const status = parseInt(req.params.status)
+        // console.log(req.params);
+        // console.log(status);
+
+        if(!(status == 0 || status == 1)){
+            return res.send({
+                success: false,
+                message: "Invalid task status"
+            })
+        }
+
+        const user = req.user
+
+        if (!user) {
+            return res.send({
+                success: false,
+                message: "User not found"
+            })
+        }
+
+        const taskIndex = user.tasks.findIndex((task) => task._id == taskId)
+
+        if(taskIndex == -1) {
+            return res.send({
+                success: false,
+                message: 'Task not found'
+            })
+        }
+
+        user.tasks[taskIndex].isComplete = !!status
+        await user.save()
+
+        res.send({
+            success: true,
+            message: "Task status updated successfully",
+            data: user.tasks[taskIndex]
+        })
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({
+            success: false,
+            message: 'Internal server error',
+            error: error
+        })
+    }
+}

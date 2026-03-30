@@ -13,12 +13,6 @@ const adminSchema = new mongoose.Schema({
         unique: true
     },
 
-    phone: {
-        type: String,
-        required: true,
-        unique: true
-    },
-
     password: {
         type: String,
         required: true
@@ -34,21 +28,14 @@ const adminSchema = new mongoose.Schema({
     tokens: {
         email: {
             type: String
-        },
-        phone: {
-            type: String
-        },
+        }
     },
 
     verified: {
         email: {
             type: Boolean,
             default: false
-        },
-        phone: {
-            type: Boolean,
-            default: false
-        },
+        }
     },
 })
 

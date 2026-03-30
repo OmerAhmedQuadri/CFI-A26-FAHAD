@@ -1,88 +1,82 @@
-import Admin from "../models/Admin.js";
-import { comparepass } from "../utils/bcrypt.js";
+import Admin from '../models/Admin.js'
+import User from '../models/User.js'
+import { comparePassword } from '../utils/bcrypt.js'
 
-export const validateUserRegistrationData = (data) => {
-    const errors = []
-    if (!data.email) {
-        errors.push({
-            field: 'email',
-            message: 'Valid email address is required'
-        })
-    }
-    if (!data.phone) {
-        errors.push({
-            field: 'phone',
-            message: 'Valid phone number is required'
-        })
-    }
-    if (!data.fullname) {
-        errors.push({
-            field: 'fullname',
-            message: 'Valid full name is required'
-        })
-    }
-    if (!data.password || data.password.length < 3) {
-        errors.push({
-            field: 'password',
-            message: 'Valid password is required'
-        })
-    }
-    if (!data.role || !['admin', 'admin'].includes(data.role)) {
-        errors.push({
-            field: 'role',
-            message: 'Valid role is required'
-        })
-    }
+export const adminLoginMiddleware = async (req, res, next) => {
+    try {
 
-    return errors
+        const { email, password } = req.body
+        if (!email || !password) {
+            return res.send({
+                success: false,
+                message: 'valid email and password is required to login'
+            })
+        }
+
+        const admin = await Admin.findOne({ email: email })
+        // console.log(user);
+        if (!admin) {
+            return res.send({
+                success: false,
+                message: 'Admin not found'
+            })
+        }
+        const validatePassword = await comparePassword(password, admin.password)
+        if (!validatePassword) {
+            return res.send({
+                success: false,
+                message: 'Invalid password'
+            })
+        }
+        if (!admin.verified.email) {
+            return res.send({
+                success: false,
+                message: 'Please verify your email before login',
+            })
+        }
+        req.admin = admin
+
+        next()
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({
+            success: false,
+            message: 'Internal server error from admin middleware',
+            error: error
+        })
+    }
 }
 
-export const registerMiddleware = async (req, res, next) => {
-    const admin = req.body
-    const validate = validateUserRegistrationData(admin)
-    if (validate.length != 0) {
-        return res.json({
+export const assignTaskMiddleware = async (req, res, next) => {
+    try {
+        const { userId } = req.body
+        const user = await User.findById(userId)
+
+        if (!user || user.status != 'active') {
+            return res.send({
+                success: false,
+                message: "User is inactive or not found"
+            })
+        }
+
+        const { taskname, deadline, priority } = req.body
+        if (!taskname || !deadline || !priority || !['high', 'medium', 'low'].includes(priority)) {
+            return res.send({
+                success: false,
+                message: 'Incomplete or invalid task data'
+            })
+        }
+
+        req.user = user
+        req.task = { taskname, deadline, priority }
+        next()
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({
             success: false,
-            message: 'Invalid admin registraion data',
-            data: validate
+            message: 'Internal server error from admin middleware',
+            error: error
         })
     }
-
-    const existing = await Admin.findOne({ "email": admin.email })
-    if (existing) {
-        return res.json({
-            success: false,
-            message: 'Admin with email already exists'
-        })
-    }
-
-    next()
-}
-
-export const loginMiddleware = async (req, res, next) => {
-    const { email, password } = req.body
-    if (!email || !password) {
-        return res.json({
-            success: false,
-            message: 'valid email and password is required to login'
-        })
-    }
-
-    const admin = await Admin.findOne({ "email": email })
-    if (!admin) {
-        return res.json({
-            success: false,
-            message: 'Admin not found'
-        })
-    }
-
-    const validatepass = await comparepass(password, admin.password)
-    if (!validatepass) {
-        return res.json({
-            success: false,
-            message: 'Invalid password'
-        })
-    }
-    req.admin = admin
-    next()
 }
