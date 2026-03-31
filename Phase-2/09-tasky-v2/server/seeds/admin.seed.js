@@ -1,5 +1,5 @@
 import Admin from "../models/Admin.js";
-import { hashPassword, comparePassword } from '../utils/bcrypt.js'
+import { hashPassword } from '../utils/bcrypt.js'
 import token from "../utils/token.js";
 
 const seedAdmin = async () => {

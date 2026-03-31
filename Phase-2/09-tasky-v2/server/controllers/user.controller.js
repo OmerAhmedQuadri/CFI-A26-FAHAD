@@ -1,6 +1,7 @@
 import User from '../models/User.js'
 import { sendEmail } from '../services/email.service.js'
 import { hashpassword } from '../utils/bcrypt.js'
+import { generateJWTToken } from '../utils/jwt.js'
 import { token } from '../utils/tokens.js'
 
 export const registerUser = async (req, res) => {
