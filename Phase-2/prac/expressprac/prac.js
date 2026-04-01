@@ -1,14 +1,15 @@
 import express from 'express'
+import d from 'dotenv'
+import { serverRouter } from './routes/server.routes.js'
+d.config()
 
 const app = express()
 // console.log(app);
-const PORT = 3000
+const PORT = process.env.SERVER_NUMBER
 
-app.get('/',(req,res)=>{
-    res.json(`hello world`)
-})
+app.use(express.json())
+
+app.use('/fahad.com', serverRouter)
 
 
-app.listen(PORT,()=>{
-    console.log(`server is listening...`);
-})
+app.listen(PORT)
