@@ -1,0 +1,16 @@
+body{
+    background-color: #24272c;
+}
+
+.google {
+    background-color: #303134;
+    color: aliceblue;
+    border-radius: 3px;
+    border: none;
+    padding: 9px 16px;
+    border: 1px solid #303134;
+}
+
+.google:hover{
+    border: 1px solid white;
+}
