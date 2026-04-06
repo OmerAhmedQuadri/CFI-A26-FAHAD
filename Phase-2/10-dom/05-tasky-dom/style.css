@@ -1,0 +1,99 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: rgb(43, 43, 43);
+    color: white;
+    font-family: Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#container {
+    background-color: rgb(74, 74, 74);
+    height: 200px;
+    width: 400px;
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 30px;
+    padding-bottom: 350px;
+}
+
+#header {
+    padding: 20px;
+}
+
+#input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#task-input {
+    border: none;
+    padding: 15px;
+    width: 200px;
+    background-color: rgb(51, 50, 50);
+    border-radius: 8px;
+    color: white;
+}
+
+#task-btn {
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: rgb(104, 15, 163);
+    color: white;
+    padding-inline: 25px;
+    transition: 0.2s;
+}
+
+#task-btn:hover{
+    background-color: rgb(79, 26, 113);
+}
+
+li {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: rgb(100, 100, 100);
+    display: flex;
+    padding-inline: 20px;
+    font-size: 15px;
+    justify-content: center;
+}
+
+li button {
+    margin: 0px;
+    margin-left: 280px;
+    padding: 3px;
+    padding-inline: 5px;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    background-color: brown;
+    transition: 0.2s;
+}
+
+li button:hover {
+    background-color: rgb(106, 28, 28);
+}
+
+.completed {
+    text-decoration: line-through;
+    background-color: rgb(63, 62, 62);
+    color: rgb(131, 130, 130);
+    transition: 0.2s;
+}
+
+.completed:hover {
+    background-color: rgb(100, 100, 100);
+}
