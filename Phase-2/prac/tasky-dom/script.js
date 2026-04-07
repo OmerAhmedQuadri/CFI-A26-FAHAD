@@ -1,5 +1,5 @@
-const inputBox = document.getElementById('task-input')
-const submitBtn = document.getElementById('task-btn')
+const inputBox = document.getElementById('input')
+const addBtn = document.getElementById('btn')
 const taskList = document.getElementById('task-list')
 
 let tasks = JSON.parse(localStorage.getItem('tasks')) || []
@@ -46,7 +46,7 @@ function renderTasks() {
     })
 }
 
-submitBtn.addEventListener('click', function () {
+addBtn.addEventListener('click', function () {
     const taskName = inputBox.value.trim()
 
     if (!taskName) return
@@ -65,3 +65,4 @@ submitBtn.addEventListener('click', function () {
 })
 
 renderTasks()
+// inputBox.focus()

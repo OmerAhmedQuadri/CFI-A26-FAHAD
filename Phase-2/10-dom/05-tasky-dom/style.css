@@ -87,7 +87,7 @@ li button:hover {
     background-color: rgb(106, 28, 28);
 }
 
-.completed {
+.completed{
     text-decoration: line-through;
     background-color: rgb(63, 62, 62);
     color: rgb(131, 130, 130);
