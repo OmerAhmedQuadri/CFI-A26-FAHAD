@@ -6,17 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>profile-card</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.11.0/axios.js"
+        integrity="sha512-InpoLQlvYoYXBmGVDzYGzD8FVvF+VO34Jt5dtS5eG71ZvoZHbIWGN5Q2xpimOlw5GHDGUcrh4LBNpZssV2XPQg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
     <div id="card-container">
-        <div id="avatar">
-            <img src="src/Video_Turned_Into_Looping_PFP-ezgif.com-video-to-gif-converter.gif" alt="">
+        <div id="avatar-container">
+            <img src="#" alt="User Avatar" id="avatar">
         </div>
         <div id="info">
             <h3 id="fullname">Mohammed Fahad Nawaz Khan</h3>
             <h4 id="username">FahadNawazKhan</h4>
-            <!-- <p id="bio">Hakuna Matata</p> -->
             <ul id="list">
                 <li id="email"><img src="src/mail.png" alt="">
                     <p>email</p>
@@ -27,11 +29,12 @@
                 <li id="location"><img src="src/maps-and-flags.png" alt="">
                     <p>location</p>
                 </li>
-                <li id="website"><img src="src/link.png" alt=""><a href="#">link</a></li>
+                <li id="website"><img src="src/link.png" alt=""><a href="#" target="_blank">link</a></li>
             </ul>
             <button id="button">View Profile</button>
         </div>
     </div>
+    <script src="script.js"></script>
 
 </body>
 

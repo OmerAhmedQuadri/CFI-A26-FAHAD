@@ -85,4 +85,13 @@ li{
     margin-inline:5px ;
     margin-top: 25px;
     border-radius: 15px;
+    transition: 0.3s;
+    border: none;
+    background-color: rgb(220, 220, 220);
+    font-size: large;
+}
+
+#button:hover{
+    background-color: rgb(209, 209, 209);
+    transform: scale(1.01);
 }

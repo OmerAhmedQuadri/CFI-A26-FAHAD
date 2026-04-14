@@ -35,7 +35,7 @@ function renderTasks() {
         })
 
         deleteBtn.addEventListener('click', function (e) {
-            e.stopPropagation()
+            // e.stopPropagation()
             tasks = tasks.filter(t => t.id !== task.id)
             saveTasks()
             renderTasks()
