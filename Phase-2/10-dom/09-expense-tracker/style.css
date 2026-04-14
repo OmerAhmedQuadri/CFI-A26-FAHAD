@@ -1,0 +1,193 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url(moneybg.jpeg);
+    background-size: cover;
+    background-color: black;
+}
+
+#container {
+    width: 700px;
+    height: 500px;
+    background-color: rgba(255, 255, 255, 0.194);
+    border-radius: 30px;
+    box-shadow: 0px 0px 50px 0px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+#expContainer {
+    width: 95%;
+    height: 40%;
+    background-color: rgba(0, 0, 0, 0.336);
+    margin-top: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+}
+
+#trackContainer {
+    width: 95%;
+    height: 50%;
+    background-color: rgba(0, 0, 0, 0.336);
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+#expense-form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100vh;
+    padding-inline: 40px;
+}
+
+.form-row{
+    display: flex;
+    width: 100%;
+    margin-block: 6px;
+}
+.form-row *{
+    padding: 10px;
+    margin-inline:5px ;
+    border: none;
+    color: white;
+}
+
+#expenseInput {
+    flex: 1.5;
+    border-radius: 10px;
+    outline: none;
+    padding-inline: 10px;
+    padding-block: 20px;
+    background-color: rgba(181, 181, 181, 0.605);
+}
+#amountInput {
+    flex: 0.5;
+    border-radius: 10px;
+    outline: none;
+    padding-inline: 10px;
+    background-color: rgba(181, 181, 181, 0.605);
+}
+#date {
+   cursor: pointer;
+    border-radius: 10px;
+    outline: none;
+    padding-inline: 10px;
+    flex: 1.5;
+    background-color: rgba(181, 181, 181, 0.605);
+    color: white;
+
+}
+
+#submit-btn{
+    flex: 0.5;
+    border-radius: 10px;
+    background-color: rgb(84, 198, 69);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    text-shadow: 0px 0px 2px black;
+    cursor: pointer;
+}
+
+input::placeholder{
+    color: white;
+}
+
+#trackContainer{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+     
+}
+
+#list{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 20px;
+    width: 95%;
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+li{
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgba(255, 255, 255, 0.377);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;      
+    height: 50px;         
+    border-radius: 10px;
+    margin-top: 10px;
+    font-size: 20px;
+    transition: 0.3s;
+    /* justify-content: space-between; */
+}
+
+li:hover{
+    background-color: rgba(255, 255, 255, 0.477);
+}
+
+li div{
+    display: flex;
+    flex-direction: column;
+    line-height: 0.8;
+}
+
+li span{
+    margin-left: auto;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+li button{
+    border-radius: 10px;
+    background-color: rgb(198, 69, 69);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    text-shadow: 0px 0px 2px black;
+    cursor: pointer;
+    padding: 10px;
+}
+
+#warning{
+    text-align: center;
+    margin-top: 15px;
+    color: brown;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgba(255, 255, 255, 0.45);
+    padding-block: 5px;
+}
+
+.hidden{
+    display: none;
+}
+
+#total{
+    color: rgb(0, 0, 0);
+    margin-top: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgba(255, 255, 255, 0.486);
+    padding: 10px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+}
