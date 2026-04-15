@@ -1,4 +1,3 @@
-
 const expInput = document.getElementById('expenseInput')
 const amountInput = document.getElementById('amountInput')
 const dateInput = document.getElementById('date')
