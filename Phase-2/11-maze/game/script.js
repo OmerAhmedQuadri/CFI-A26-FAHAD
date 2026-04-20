@@ -1,0 +1,1 @@
+const gameTable = document.getElementById('game-table')
