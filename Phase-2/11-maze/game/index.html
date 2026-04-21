@@ -4,23 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Number Maze Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div id="container">
-        <h2>Maze Game / Hello <span>Pla yer</span></h2>
-        <div id="header-container">
+
+    <div class="container">
+
+        <div id="header-bar">
+            <h2>Maze Game / Hello <span id="name">Player</span></h2>
+
+            <div class="controls">
+                <button id="home-btn">Home</button>
+                <button id="reset-btn">Reset Game</button>
+                <button id="leaderboard-btn">Leaderboard</button>
+                <div id="score">Score: 100</div>
+            </div>
+
         </div>
+
         <div id="game-container">
-            <table id="game-table">
-                
-            </table>
+            <table id="game-table"></table>
         </div>
+
     </div>
 
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 
 </html>
