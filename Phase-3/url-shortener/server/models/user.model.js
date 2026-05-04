@@ -20,28 +20,28 @@ const userSchema = new mongoose.Schema({
         default: 'pending'
     },
     authTokens: {
-        userRegisteration: {
+        userRegistration: {
             otp: {
-                type: String,
+                type: Number,
                 required: true,
-                default: 'null'
+                default: null
             },
             expires: {
                 type: String,
                 required: true,
-                default: 'null'
+                default: null
             }
         },
         passwordReset: {
             otp: {
-                type: String,
+                type: Number,
                 required: true,
-                default: 'null'
+                default: null
             },
             expires: {
                 type: String,
                 required: true,
-                default: 'null'
+                default: null
             }
         }
     }

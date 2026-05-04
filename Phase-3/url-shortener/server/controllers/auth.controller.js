@@ -35,9 +35,9 @@ export const validateUserRegistration = async (req, res) => {
     }
     try {
         const user = await findUserByEmail(email)
-        if (user && user.status == 'pending') {
-            if (user.authTokens.userRegisteration.otp == otp) {
-                const expiry = new Date(user.authTokens.userRegisteration.expires)
+        if (user && user.status === 'pending') {
+            if (user.authTokens.userRegistration.otp === Number(otp)) {
+                const expiry = new Date(user.authTokens.userRegistration.expires)
                 if (expiry.getTime() < Date.now()) {
                     return res.status(400).send({
                         success: false,
@@ -45,8 +45,8 @@ export const validateUserRegistration = async (req, res) => {
                     })
                 }
                 user.status = 'active'
-                user.authTokens.userRegisteration.otp = 'null'
-                user.authTokens.userRegisteration.expires = 'null'
+                user.authTokens.userRegistration.otp = null
+                user.authTokens.userRegistration.expires = null
                 await user.save()
                 return res.status(200).send({
                     success: true,
@@ -89,15 +89,15 @@ export const resendRegisterOtp = async (req, res) => {
     }
     try {
         const user = await findUserByEmail(email)
-        if (user && user.status == 'pending') {
-            user.authTokens.userRegisteration.otp = generateOtp()
-            user.authTokens.userRegisteration.expires = new Date(Date.now() + 1 * 60 * 1000).toISOString()
+        if (user && user.status === 'pending') {
+            user.authTokens.userRegistration.otp = generateOtp()
+            user.authTokens.userRegistration.expires = new Date(Date.now() + 1 * 60 * 1000).toISOString()
             await user.save()
             return res.status(200).send({
                 success: true,
                 message: 'OTP resent successfully'
             })
-        } else if (user) {
+        } else if (user && user.status !== 'pending') {
             return res.status(400).send({
                 success: false,
                 message: 'User already verified'
@@ -123,12 +123,12 @@ export const login = async (req, res) => {
 
     const user = req.user
     const token = 'hello'
+    
 
     return res.status(200).send({
         success: true,
         message: 'User logged in successfully',
         data: {
-            user,
             token
         }
     })

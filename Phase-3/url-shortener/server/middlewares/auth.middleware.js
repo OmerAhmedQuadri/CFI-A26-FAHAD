@@ -34,16 +34,16 @@ export const registerMiddleware = async (req, res, next) => {
 
         const existingUser = await findUserByEmail(email)
 
-        if (existingUser && existingUser.status != 'pending') {
+        if (existingUser && existingUser.status !== 'pending') {
             return res.status(400).json({
                 success: false,
                 message: 'User already exists'
             })
         }
-        if(existingUser && existingUser.status == 'pending'){
+        if (existingUser && existingUser.status === 'pending') {
             await findUserByEmailAndDelete(email)
         }
-        
+
 
         req.user = {
             fullname,
@@ -84,7 +84,13 @@ export const loginMiddleware = async (req, res, next) => {
                 message: 'User not found'
             })
         }
-        if (user.status == 'inactive') {
+        if (user.status === 'pending') {
+            return res.status(400).send({
+                success: false,
+                message: 'Please verify your email first'
+            })
+        }
+        if (user.status === 'inactive') {
             return res.status(400).send({
                 success: false,
                 message: 'User is inactive'

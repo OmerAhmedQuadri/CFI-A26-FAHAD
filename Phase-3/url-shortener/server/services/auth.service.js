@@ -5,10 +5,10 @@ import { hashPassword } from "../utils/bcrypt.utils.js"
 import { generateOtp } from "../utils/otp.utils.js"
 
 export const createUser = async ({ fullname, email, password }) => {
-    password = await hashPassword(password, 10)
+    password = await hashPassword(password)
     const user = new User({ fullname, email, password })
-    user.authTokens.userRegisteration.otp = generateOtp()
-    user.authTokens.userRegisteration.expires = new Date(Date.now() + 1 * 60 * 1000).toISOString()
+    user.authTokens.userRegistration.otp = generateOtp()
+    user.authTokens.userRegistration.expires = new Date(Date.now() + 1 * 60 * 1000).toISOString()
     await user.save()
     return user
 }
