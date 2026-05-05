@@ -1,10 +1,12 @@
-import { createUser, findUserByEmail } from "../services/auth.service.js";
+// import { createUser, findUserByEmail } from "../services/auth.service.js";
+import { sendOtp } from "../services/email.service.js";
+import { createUser, findUserByEmail } from "../services/user.service.js";
 import { generateOtp } from "../utils/otp.utils.js";
 
 export const register = async (req, res) => {
     const { fullname, email, password } = req.user
     try {
-        const user = await createUser({ fullname, email, password })
+        const user = await createUserr({ fullname, email, password })
 
         return res.status(201).json({
             success: true,
@@ -36,7 +38,7 @@ export const validateUserRegistration = async (req, res) => {
     try {
         const user = await findUserByEmail(email)
         if (user && user.status === 'pending') {
-            if (user.authTokens.userRegistration.otp === Number(otp)) {
+            if (user.authTokens.userRegistration.otp === otp) {
                 const expiry = new Date(user.authTokens.userRegistration.expires)
                 if (expiry.getTime() < Date.now()) {
                     return res.status(400).send({
@@ -45,8 +47,8 @@ export const validateUserRegistration = async (req, res) => {
                     })
                 }
                 user.status = 'active'
-                user.authTokens.userRegistration.otp = null
-                user.authTokens.userRegistration.expires = null
+                user.authTokens.userRegistration.otp = 'null'
+                user.authTokens.userRegistration.expires = 'null'
                 await user.save()
                 return res.status(200).send({
                     success: true,
@@ -93,6 +95,7 @@ export const resendRegisterOtp = async (req, res) => {
             user.authTokens.userRegistration.otp = generateOtp()
             user.authTokens.userRegistration.expires = new Date(Date.now() + 1 * 60 * 1000).toISOString()
             await user.save()
+            await sendOtp(user.email, user.authTokens.userRegistration.otp)
             return res.status(200).send({
                 success: true,
                 message: 'OTP resent successfully'
@@ -117,13 +120,11 @@ export const resendRegisterOtp = async (req, res) => {
     }
 }
 
-
-
 export const login = async (req, res) => {
 
     const user = req.user
     const token = 'hello'
-    
+
 
     return res.status(200).send({
         success: true,

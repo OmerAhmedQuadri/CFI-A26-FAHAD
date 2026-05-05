@@ -1,7 +1,6 @@
-import { findUserByEmail, findUserByEmailAndDelete } from "../services/auth.service.js"
+// import { findUserByEmail, findUserByEmailAndDelete } from "../services/auth.service.js"
+import { findUserByEmail, findUserByEmailAndDelete } from "../services/user.service.js"
 import { comparePassword } from "../utils/bcrypt.utils.js"
-
-
 
 const registerValidator = async ({ fullname, email, password }) => {
     const errors = {}

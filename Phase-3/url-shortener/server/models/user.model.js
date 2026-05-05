@@ -22,26 +22,26 @@ const userSchema = new mongoose.Schema({
     authTokens: {
         userRegistration: {
             otp: {
-                type: Number,
+                type: String,
                 required: true,
-                default: null
+                default: 'null'
             },
             expires: {
                 type: String,
                 required: true,
-                default: null
+                default: 'null'
             }
         },
         passwordReset: {
             otp: {
-                type: Number,
+                type: String,
                 required: true,
-                default: null
+                default: 'null'
             },
             expires: {
                 type: String,
                 required: true,
-                default: null
+                default: 'null'
             }
         }
     }
