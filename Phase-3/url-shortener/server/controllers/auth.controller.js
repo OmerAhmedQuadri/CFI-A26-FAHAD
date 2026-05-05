@@ -123,7 +123,7 @@ export const resendRegisterOtp = async (req, res) => {
 export const login = async (req, res) => {
 
     const user = req.user
-    const token = 'hello'
+    const token = user.token
 
 
     return res.status(200).send({

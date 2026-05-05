@@ -1,6 +1,7 @@
 // import { findUserByEmail, findUserByEmailAndDelete } from "../services/auth.service.js"
 import { findUserByEmail, findUserByEmailAndDelete } from "../services/user.service.js"
 import { comparePassword } from "../utils/bcrypt.utils.js"
+import { generateJwtToken } from "../utils/jwt.utils.js"
 
 const registerValidator = async ({ fullname, email, password }) => {
     const errors = {}
@@ -103,6 +104,9 @@ export const loginMiddleware = async (req, res, next) => {
                 message: 'Invalid credentials'
             })
         }
+
+        user.token = await generateJwtToken({ _id: user._id, email: user.email });
+
         req.user = user
         next()
     } catch (error) {
