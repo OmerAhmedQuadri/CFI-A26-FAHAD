@@ -105,7 +105,7 @@ export const loginMiddleware = async (req, res, next) => {
             })
         }
 
-        user.token = await generateJwtToken({ _id: user._id, email: user.email });
+        user.token = await generateJwtToken({ id: user._id });
 
         req.user = user
         next()

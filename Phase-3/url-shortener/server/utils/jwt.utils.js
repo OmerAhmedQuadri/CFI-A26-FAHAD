@@ -7,5 +7,5 @@ export const generateJwtToken = (payload) => {
     const secret = process.env.JWT_SECRET
     const expiry = process.env.JWT_EXPIRY
 
-    return jwt.sign(payload, secret, { expiresIn: expiry })
+    return jwt.sign({ data: payload }, secret, { expiresIn: expiry })
 }

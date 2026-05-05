@@ -1,7 +1,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
 
-import './utils/dbconnect.js'
+import './config/mongo.config.js'
 import { authRouter } from './routes/auth.route.js'
 
 dotenv.config()
