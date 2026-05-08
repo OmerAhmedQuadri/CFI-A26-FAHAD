@@ -1,7 +1,6 @@
-// import { findUserByEmail, findUserByEmailAndDelete } from "../services/auth.service.js"
-import { findUserByEmail, findUserByEmailAndDelete } from "../services/user.service.js"
+import { findUserByEmail, findUserByEmailAndDelete, findUserById } from "../services/user.service.js"
 import { comparePassword } from "../utils/bcrypt.utils.js"
-import { generateJwtToken } from "../utils/jwt.utils.js"
+import { generateJWTToken, validateJWTToken } from "../utils/jwt.utils.js"
 
 const registerValidator = async ({ fullname, email, password }) => {
     const errors = {}
@@ -105,9 +104,38 @@ export const loginMiddleware = async (req, res, next) => {
             })
         }
 
-        user.token = await generateJwtToken({ id: user._id });
+        user.token = await generateJWTToken({ id: user._id });
 
         req.user = user
+        next()
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send({
+            success: false,
+            message: 'Internal Server Error'
+        })
+    }
+}
+
+export const authMiddleware = async (req, res, next) => {
+    try {
+        const token = req.cookies.token
+        if (!token) {
+            return res.status(401).send({
+                success: false,
+                message: 'Unauthorized'
+            })
+        }
+        const id = await validateJWTToken(token)
+
+        if (!id) {
+            return res.status(401).send({
+                success: false,
+                message: 'Unauthorized'
+            })
+        }
+
+        req.user = await findUserById(id)
         next()
     } catch (error) {
         console.log(error);

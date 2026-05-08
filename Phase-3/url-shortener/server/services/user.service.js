@@ -24,3 +24,8 @@ export const findUserByEmailAndDelete = async (email) => {
     const user = await User.findOneAndDelete({ email })
     return user
 }
+
+export const findUserById = async (id) => {
+    const user = await User.findById(id)
+    return user
+}

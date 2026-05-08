@@ -1,11 +1,21 @@
-import jwt from "jsonwebtoken"
-import dotenv from "dotenv"
+import jwt from 'jsonwebtoken'
 
-dotenv.config()
+export const generateJWTToken = async (payload) => {
+    try {
+        const jwtToken = jwt.sign({ data: payload }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRY })
+        
+        return jwtToken
+    } catch (error) {
+        console.log(error);
+    }
+}
 
-export const generateJwtToken = (payload) => {
-    const secret = process.env.JWT_SECRET
-    const expiry = process.env.JWT_EXPIRY
 
-    return jwt.sign({ data: payload }, secret, { expiresIn: expiry })
+export const validateJWTToken = async (token) => {
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET)
+        return decoded.data
+    } catch (error) {
+        console.log(error);
+    }
 }

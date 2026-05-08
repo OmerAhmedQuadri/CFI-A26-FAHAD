@@ -1,12 +1,14 @@
 // import { createUser, findUserByEmail } from "../services/auth.service.js";
+import { cookieConfig } from "../config/cookie.config.js";
 import { sendOtp } from "../services/email.service.js";
 import { createUser, findUserByEmail } from "../services/user.service.js";
+import { generateJWTToken } from "../utils/jwt.utils.js";
 import { generateOtp } from "../utils/otp.utils.js";
 
 export const register = async (req, res) => {
     const { fullname, email, password } = req.user
     try {
-        const user = await createUserr({ fullname, email, password })
+        const user = await createUser({ fullname, email, password })
 
         return res.status(201).json({
             success: true,
@@ -123,14 +125,12 @@ export const resendRegisterOtp = async (req, res) => {
 export const login = async (req, res) => {
 
     const user = req.user
-    const token = user.token
+    const token = await generateJWTToken(user._id)
 
-
+    res.cookie('token', token, cookieConfig)
     return res.status(200).send({
         success: true,
         message: 'User logged in successfully',
-        data: {
-            token
-        }
+        data: user
     })
 }
