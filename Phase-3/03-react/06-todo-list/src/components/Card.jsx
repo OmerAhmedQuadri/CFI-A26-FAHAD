@@ -12,8 +12,17 @@ const Card = () => {
     }
 
     setTaskList([...taskList, task])
-    
+
     setTask('')
+
+  }
+
+  function deleteTask(Taskindex) {
+    const updatedList = [...taskList]
+
+    updatedList.splice(Taskindex, 1)
+
+    setTaskList(updatedList)
 
   }
   return (
@@ -25,6 +34,7 @@ const Card = () => {
       />
       <Tasks
         taskList={taskList}
+        deleteTask={deleteTask}
       />
     </div>
   )

@@ -13,7 +13,7 @@ const Input = ({ task, setTask, addTask }) => {
                         setTask(e.target.value)
                     }} />
 
-                <button className='bg-amber-300 p-2  px-4 py-3 rounded-lg ' onClick={addTask }>+</button>
+                <button className='bg-amber-300 p-2  px-4 py-3 rounded-lg text-white font-bold text-2xl hover:bg-yellow-600 transition-colors duration-300 text-center' onClick={addTask }>+</button>
             </div>
         </div>
     )
