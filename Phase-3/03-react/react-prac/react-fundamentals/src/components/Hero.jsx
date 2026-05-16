@@ -2,7 +2,7 @@ import React from 'react'
 
 const Hero = ({ heroText, desc , heroButton }) => {
     return (
-        <div className='text-white flex flex-col justify-center items-center bg-slate-800 ml-2.5 mb-2.5 rounded-lg w-310 h-110'>
+        <div className='text-white flex flex-col justify-center items-center bg-slate-800 ml-2.5 mb-2.5 rounded-lg w-310 h-110 border border-slate-600'>
             <div className='font-bold text-6xl'>
                 <h1>{heroText}</h1>
             </div>
