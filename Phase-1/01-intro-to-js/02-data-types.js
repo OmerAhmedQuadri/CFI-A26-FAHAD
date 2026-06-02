@@ -35,7 +35,6 @@ null
 undefined
 bigint
 Symbol
-exponent
 */
 
 let id = Symbol("10")
